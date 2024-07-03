@@ -3,6 +3,7 @@ import PropertiesCard from "@/components/home/PropertiesCard";
 import Stats from "@/components/home/Stats";
 import { cardData, shimmer, toBase64 } from "@/utils/Helpers";
 import Image from "next/image";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 
 export default function Home() {
@@ -56,12 +57,22 @@ export default function Home() {
             </div>
             <button className="self-end p-3 rounded-lg  font-semibold ring-1 ring-border-black bg-hero-img-bg max-lg:hidden">View All Properties</button>
           </div>
-          <div className="my-5 grid grid-cols-3 max-lg:grid-cols-1 max-lg:w-11/12 max-lg:place-items-center ">
-            <PropertiesCard />
-            <PropertiesCard />
-            <PropertiesCard />
+          <div className="mb-5 mt-10">
+            <Carousel className="w-full">
+              <CarouselContent className="-ml-3">
+                <CarouselItem className=" basis-4/4" > <PropertiesCard /> </CarouselItem>
+                <CarouselItem className=" basis-4/4"> <PropertiesCard /> </CarouselItem>
+                <CarouselItem className=" basis-4/4"> <PropertiesCard /> </CarouselItem>
+                <CarouselItem className=" basis-4/4"> <PropertiesCard /> </CarouselItem>
+                <CarouselItem className=" basis-4/4"> <PropertiesCard /> </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
         </div>
+        
+
       </section>
     </>
     
