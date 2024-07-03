@@ -1,6 +1,9 @@
 import Card from "@/components/home/Card";
+import PropertiesCard from "@/components/home/PropertiesCard";
 import Stats from "@/components/home/Stats";
+import { cardData, shimmer, toBase64 } from "@/utils/Helpers";
 import Image from "next/image";
+
 
 export default function Home() {
   return (
@@ -25,21 +28,40 @@ export default function Home() {
             </div>
           </div>
           <div className="flex w-1/2 bg-hero-img-bg bg-[url('/hero-bg-img.svg')]  max-lg:w-11/12 max-lg:h-[35rem] max-lg:rounded-lg max-lg:mt-5 max-lg:mb-10">
-            <Image src="/hero-img.svg" alt="home" width={100} height={10} style={{objectFit: 'cover', height: 'auto'}} loading='eager' className="w-full max-lg:rounded-lg"/>
+            <Image src="/hero-img.svg" alt="home" width={100} height={100} style={{objectFit: 'cover'}} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} loading='eager' className="w-full max-lg:rounded-lg"/>
           </div>
           
         </div>
 
         <div className=" w-full  mb-10 mt-5 ring-4 ring-border-black p-4 rounded-lg grid grid-cols-4 max-lg:grid-cols-2 gap-5 max-lg:w-11/12">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {cardData?.map((data, index) => {
+            return (
+              <Card title={data.title} img={data.img} index={index}/>
+            )
+          })}
         </div>
       </section>
       
-      <section className="mt-5 w-full max-w-[1600px]">
-        n
+      <section className="mt-8 w-full max-w-[1600px] flex flex-col max-lg:items-center">
+        <div className="flex gap-3 max-lg:ml-3 max-lg:self-start">
+          <Image src="/star-lg.svg" width={40} height={40} alt="star" />
+          <Image src="/star-sm.svg" width={30} height={30} alt="star" />
+          <Image src="/star-sm.svg" width={20} height={20} alt="star" />
+        </div>
+        <div className="mt-6 w-[90%]">
+          <div className="flex items-center justify-between mb-5 max-lg:flex-col">
+            <div className="ml-4 w-3/4 max-lg:w-11/12">
+              <h1 className="text-3xl font-bold mb-5">Featured properties</h1>
+              <p className="opacity-70 text-sm ">Explore our handpicked selection of featured properties. Each listing offers a glimpse into exceptional homes and investments available through Estatein. Click "View Details" for more information.</p>
+            </div>
+            <button className="self-end p-3 rounded-lg  font-semibold ring-1 ring-border-black bg-hero-img-bg max-lg:hidden">View All Properties</button>
+          </div>
+          <div className="my-5 grid grid-cols-3 max-lg:grid-cols-1 max-lg:w-11/12 max-lg:place-items-center ">
+            <PropertiesCard />
+            <PropertiesCard />
+            <PropertiesCard />
+          </div>
+        </div>
       </section>
     </>
     
