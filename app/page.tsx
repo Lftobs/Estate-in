@@ -1,10 +1,10 @@
 import Card from "@/components/home/Card";
 import PropertiesCard from "@/components/home/PropertiesCard";
 import Stats from "@/components/home/Stats";
-import { cardData, shimmer, toBase64 } from "@/utils/Helpers";
+import { cardData, shimmer, toBase64 } from "@/lib/Helpers";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-
+import { CarouselComponent } from "@/components/Carousel";
 
 export default function Home() {
   return (
@@ -57,19 +57,29 @@ export default function Home() {
             </div>
             <button className="self-end p-3 rounded-lg  font-semibold ring-1 ring-border-black bg-hero-img-bg max-lg:hidden">View All Properties</button>
           </div>
-          <div className="mb-5 mt-10">
+          {/* <div className="mb-5 mt-10">
             <Carousel className="w-full">
               <CarouselContent className="-ml-3">
-                <CarouselItem className=" basis-4/4" > <PropertiesCard /> </CarouselItem>
-                <CarouselItem className=" basis-4/4"> <PropertiesCard /> </CarouselItem>
-                <CarouselItem className=" basis-4/4"> <PropertiesCard /> </CarouselItem>
-                <CarouselItem className=" basis-4/4"> <PropertiesCard /> </CarouselItem>
-                <CarouselItem className=" basis-4/4"> <PropertiesCard /> </CarouselItem>
+                <CarouselItem className=" basis-1/1" > <PropertiesCard /> </CarouselItem>
+                <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <div className="relative flex justify-between items-center my-5">
+                <p className="text-base font-medium">1 <span className="opacity-70">of 60</span></p>
+                <div className="bg-red-300 relative w-0">
+                  <CarouselPrevious className="-ml-14"/>
+                  <CarouselNext className="mr-10"/>
+                </div>
+              </div>
             </Carousel>
+          </div> */}
+          <div className="mb-5 mt-10 w-full">
+            <CarouselComponent data={{}} variant="review"/>
           </div>
+          
+          
         </div>
         
 
