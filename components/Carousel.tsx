@@ -58,6 +58,13 @@ export function CarouselComponent({data, variant}: carouselPropsType) {
                         <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
                     </>
                 )}
+                {variant === "faqs" && (
+                    <>
+                        <CarouselItem className=" basis-1/1" > <PropertiesCard /> </CarouselItem>
+                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                    </>
+                )}
             </CarouselContent>
             <div className="relative flex justify-between items-center my-5">
                 <p className="text-base font-medium">{current} <span className="opacity-70">of {count}</span></p>

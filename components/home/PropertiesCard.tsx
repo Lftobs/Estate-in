@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const PropertiesCard = () => {
   return (
-    <div className='w-auto max-w-[28rem] max-lg:w-[19.8rem] p-4 px-5 ring-1 ring-border-black rounded-xl'>
+    <div className='w-auto max-w-[28rem] max-lg:w-[19.8rem] p-4 px-5 ring-1 ring-border-black rounded-xl hover:shadow-slate-700 hover:shadow'>
         <div className='w-full h-72 relative'>
           <Image fill src='/dispose/p1.svg' className='w-full h-full rounded' alt='i'/>
         </div>

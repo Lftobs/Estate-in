@@ -1,6 +1,7 @@
 export enum carouselComponentType {
     properties,
-    review
+    review,
+    faqs
 }
 
 export type carouselPropsType = {

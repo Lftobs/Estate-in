@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   app:
-    image: demo-app
+    image: estate-in
     build:
       context: ./
       target: dev
