@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className=" !overflow-x-hidden max-w-[100%]" style={{overflow: "hidden"}}>
         <main className='bg-black-btn flex flex-col items-center'>
           <Navigation />
           {children}

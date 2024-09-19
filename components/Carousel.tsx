@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/carousel"
 import PropertiesCard from "./home/PropertiesCard"
 import { carouselComponentType, carouselPropsType } from "@/lib/types"
+import ReviewCard from "./home/ReviewCard"
+import { FaqCard } from "./home/FaqCard"
 
 
 
@@ -24,53 +26,55 @@ export function CarouselComponent({data, variant}: carouselPropsType) {
       return
     }
 
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
+    window.addEventListener("resize", () => {
+      setCount(api.scrollSnapList().length)
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+    
 
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap() + 1)
     })
   }, [api])
 
+  // React.useEffect(() => {}, [])
+
   return (
     <>
         <Carousel className="w-full" setApi={setApi}>
-            <CarouselContent className="-ml-3 gap-1">
+            <CarouselContent className={`-ml-3 gap-1 justify-between overflow-x-hidden px-2`}>
                 {variant === "properties" && (
                     <>
-                        <CarouselItem className=" basis-1/1" > <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                      <CarouselItem className=" basis-1/1" > <PropertiesCard /> </CarouselItem>
+                      <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                      <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                      <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                      <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
                     </>
                 )}
                 {variant === "review" && (
                     <>
-                        <CarouselItem className=" basis-1/1" > <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                      <CarouselItem className=" basis-1/1"><ReviewCard /></CarouselItem>
+                      <CarouselItem className=" basis-1/1"><ReviewCard /></CarouselItem>
+                      <CarouselItem className=" basis-1/1"><ReviewCard /></CarouselItem>
+                      <CarouselItem className=" basis-1/1"><ReviewCard /></CarouselItem>
+                      <CarouselItem className=" basis-1/1"><ReviewCard /></CarouselItem>
+                      
                     </>
                 )}
                 {variant === "faqs" && (
                     <>
-                        <CarouselItem className=" basis-1/1" > <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
-                        <CarouselItem className=" basis-1/1"> <PropertiesCard /> </CarouselItem>
+                      <CarouselItem className=" basis-1/1"> <FaqCard /> </CarouselItem>
+                      <CarouselItem className=" basis-1/1"> <FaqCard /> </CarouselItem>
+                      <CarouselItem className=" basis-1/1"> <FaqCard /> </CarouselItem>
                     </>
                 )}
             </CarouselContent>
-            <div className="relative flex justify-between items-center my-5">
+            <div className={`relative flex justify-between items-center my-5 ${count === 0 && 'hidden'}`}>
                 <p className="text-base font-medium">{current} <span className="opacity-70">of {count}</span></p>
                 <div className="bg-red-300 relative w-0">
-                    <CarouselPrevious className="-ml-14"/>
-                    <CarouselNext className="mr-10"/>
+                  <CarouselPrevious className="-ml-14"/>
+                  <CarouselNext className="mr-10"/>
                 </div>
             </div>
         </Carousel>

@@ -5,26 +5,27 @@ import { cardData, shimmer, toBase64 } from "@/lib/Helpers";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { CarouselComponent } from "@/components/Carousel";
+import { Seperator } from "@/components/home/Seperator";
 
 export default function Home() {
   return (
     <>
-      <section className="flex flex-col items-center">
-        <div className="relative flex items-center bg-black-btn w-full pl-28 max-w-[1600px] max-lg:flex-col-reverse max-lg:pl-0">
+      <section className="flex flex-col items-center max-w-[1600px]">
+        <div className="relative flex items-center bg-black-btn w-full pl-28 max-lg:flex-col-reverse lg:w-[95%] max-lg:pl-0">
           <div className="relative w-1/2 flex flex-col max-lg:w-11/12">
-            <h1 className="max-w-[26rem] text-balance font-bold text-[2.5rem] text-3xl max-md:text-2xl">Discover Your Dream Property with Estatein</h1>
+            <h1 className="max-w-[26rem] text-balance font-bold text-[2.5rem] text-3xl max-lg:text-2xl max-xl:text-3xl">Discover Your Dream Property with Estatein</h1>
             <p className="max-w-[80%] mt-4 opacity-70 text-sm max-lg:max-w-full">Your journey to finding the perfect property begins here. Explore our listings to find the home that matches your dreams.</p>
             <div className="mt-10 flex gap-5">
               <button className=" p-3 rounded-lg ring-1 ring-border-black ">Learn More</button>
               <button className=" p-3 rounded-lg bg-purple">Browse Properties</button>
             </div>
-            <div className=" flex w-[95%] mt-12 gap-5 max-lg:grid max-lg:grid-cols-2 max-lg:w-full">
+            <div className=" flex w-[95%] mt-12 gap-5 max-lg:grid max-lg:grid-cols-2">
               <Stats text={`Happy Customers`} count={200}/>
               <Stats text={`Properties For Clients`} count={`10K`}/>
               <Stats text={`Years of Experience`} count={16} extra={`max-lg:last:col-span-2 max-lg:text-center`}/>
             </div>
             
-            <div className="absolute -right-10 -top-5 max-lg:right-0 max-lg:left-0 max-lg:-top-24">
+            <div className="absolute -right-10 -top-5 max-lg:right-0 max-lg:left-0 max-lg:-top-24 lg:top-5 lg:-right-14">
               <Image src="/circular-text.svg" alt="circular-text" height={100} width={100} />
             </div>
           </div>
@@ -34,7 +35,7 @@ export default function Home() {
           
         </div>
 
-        <div className=" w-full  mb-10 mt-5 ring-4 ring-border-black p-4 rounded-lg grid grid-cols-4 max-lg:grid-cols-2 gap-5 max-lg:w-11/12">
+        <div className=" w-full mb-10 mt-5 ring-4 ring-border-black p-4 rounded-lg grid grid-cols-4 lg:w-[95%] max-lg:grid-cols-2 gap-5 max-lg:w-11/12">
           {cardData?.map((data, index) => {
             return (
               <Card title={data.title} img={data.img} index={index} key={index}/>
@@ -43,13 +44,9 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="mt-8 w-11/12 max-w-[1600px] lg:w-full flex flex-col items-center max-lg:items-center">
-        <div className="flex gap-3 max-lg:ml-3 max-lg:self-start self-start">
-          <Image src="/star-lg.svg" width={40} height={40} alt="star" />
-          <Image src="/star-sm.svg" width={30} height={30} alt="star" />
-          <Image src="/star-sm.svg" width={20} height={20} alt="star" />
-        </div>
-        <div className="mt-6 w-[98%] max-md:w-11/12">
+      <section className="mt-8 w-11/12 max-w-[1600px] lg:w-[95%] flex flex-col items-center max-lg:items-center">
+        <Seperator />
+        <div className="mt-6 w-full max-md:w-11/12">
           <div className="flex items-center justify-between mb-5 max-lg:flex-col">
             <div className="ml-4 w-3/4 max-lg:w-11/12">
               <h1 className="text-3xl font-bold mb-5">Featured properties</h1>
@@ -67,13 +64,9 @@ export default function Home() {
 
       </section>
 
-      <section className="mt-8 w-11/12 max-w-[1600px] lg:w-full flex flex-col items-center max-lg:items-center">
-        <div className="flex gap-3 max-lg:ml-3 max-lg:self-start self-start">
-          <Image src="/star-lg.svg" width={40} height={40} alt="star" />
-          <Image src="/star-sm.svg" width={30} height={30} alt="star" />
-          <Image src="/star-sm.svg" width={20} height={20} alt="star" />
-        </div>
-        <div className="mt-6 w-[98%] max-md:w-11/12">
+      <section className="mt-8 w-11/12 max-w-[1600px] lg:w-[95%] flex flex-col items-center max-lg:items-center">
+        <Seperator />
+        <div className="mt-6 w-full max-md:w-11/12">
           <div className="flex items-center justify-between mb-5 max-lg:flex-col">
             <div className="ml-4 w-3/4 max-lg:w-11/12">
               <h1 className="text-3xl font-bold mb-5">What Our Clients Say</h1>
@@ -91,13 +84,9 @@ export default function Home() {
 
       </section>
 
-      <section className="mt-8 w-11/12 max-w-[1600px] lg:w-full flex flex-col items-center max-lg:items-center">
-        <div className="flex gap-3 max-lg:ml-3 max-lg:self-start self-start">
-          <Image src="/star-lg.svg" width={40} height={40} alt="star" />
-          <Image src="/star-sm.svg" width={30} height={30} alt="star" />
-          <Image src="/star-sm.svg" width={20} height={20} alt="star" />
-        </div>
-        <div className="mt-6 w-[98%] max-md:w-11/12">
+      <section className="mt-8 w-11/12 max-w-[1600px] lg:w-[95%] flex flex-col items-center max-lg:items-center">
+        <Seperator />
+        <div className="mt-6 w-full max-md:w-11/12">
           <div className="flex items-center justify-between mb-5 max-lg:flex-col">
             <div className="ml-4 w-3/4 max-lg:w-11/12">
               <h1 className="text-3xl font-bold mb-5">Frequently Asked Questions</h1>
@@ -105,7 +94,7 @@ export default function Home() {
             </div>
             <button className="self-end p-3 rounded-lg  font-semibold ring-1 ring-border-black bg-hero-img-bg max-lg:hidden">View All FAQs</button>
           </div>
-          <div className="mb-5 mt-10 w-full">
+          <div className="mb-5 mt-10 w-full flex justify-between">
             <CarouselComponent data={{}} variant="faqs" />
           </div>
           
